@@ -1,8 +1,8 @@
-import {YourGlobalConfig} from './types';
+import {ObjectStorageGlobalConfig} from './types';
 import {PluginInterface, PluginParams} from '../types/interface';
 
-export const MyCustomPlugin = (
-  globalConfig: YourGlobalConfig
+export const ObjectStorage = (
+  globalConfig: ObjectStorageGlobalConfig
 ): PluginInterface => {
   const metadata = {
     kind: 'execute',

@@ -1,0 +1,12 @@
+name: plugin-demo-link
+description: loads plugin
+tags: null
+initialize:
+  plugins:
+    object-storage:
+      method: ObjectStorage
+      path: "if-carbon-hack-plugin"
+      global-config: {}
+tree:
+  pipeline:
+    - object-storage

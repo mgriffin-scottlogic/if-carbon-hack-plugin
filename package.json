@@ -1,13 +1,10 @@
 {
-  "name": "if-plugin-template",
-  "description": "Impact Framework plugins template.",
+  "name": "if-carbon-hack-plugin",
+  "description": "Impact Framework Carbon Hack plugin.",
   "version": "v0.1.0",
   "author": {
-    "name": "Green Software Foundation",
-    "email": "info@gsf.com"
-  },
-  "bugs": {
-    "url": "https://github.com/Green-Software-Foundation/if-plugin-template/issues/new?assignees=&labels=feedback&projects=&template=feedback.md&title=Feedback+-+"
+    "name": "Scott Logic/DWP",
+    "email": "sustainability@scottlogic.com"
   },
   "dependencies": {
     "typescript": "^5.1.6"
@@ -29,12 +26,12 @@
     "node": ">=18",
     "npm": ">=8"
   },
-  "homepage": "https://greensoftware.foundation",
+  "homepage": "https://www.scottlogic.com",
   "keywords": [],
   "license": "MIT",
   "main": "build/index.js",
   "repository": {
-    "url": "https://github.com/Green-Software-Foundation/if-plugin-template.git"
+    "url": "https://github.com/mgriffin-scottlogic/if-carbon-hack-plugin.git"
   },
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.build.json",
