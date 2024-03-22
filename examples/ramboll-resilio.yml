@@ -1,0 +1,27 @@
+name: basic Ramboll-Resilio example
+description: Uses minimal mock data to run the plugin
+tags: null
+initialize:
+  plugins:
+    import-data:
+      path: '@grnsft/if-plugins'
+      method: MockObservations
+      global-config:
+        timestamp-from: 2024-03-05T00:00
+        timestamp-to: 2024-03-05T01:00
+        duration: 300
+        components:
+          - name: storage-1
+        generators:
+          randint:
+            data-stored:
+              min: 1
+              max: 50
+    object-storage:
+      method: RambollResilio
+      path: "if-carbon-hack-plugin"
+      global-config: {}
+tree:
+  pipeline:
+    - import-data
+    - object-storage

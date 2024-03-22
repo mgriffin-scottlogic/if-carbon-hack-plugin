@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@grnsft/if": "^0.3.1",
+    "@grnsft/if-plugins": "^0.3.0",
     "if-carbon-hack-plugin": "file:.."
   }
 }
