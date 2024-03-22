@@ -1,6 +1,6 @@
-# if-plugin-template
+# if-carbon-hack-plugin
 
-`if-plugin-template` is an environmental impact calculator template which exposes an API for [IF](https://github.com/Green-Software-Foundation/if) to retrieve energy and embodied carbon estimates.
+`if-carbon-hack-plugin` is an environmental impact calculator template which exposes an API for [IF](https://github.com/Green-Software-Foundation/if) to retrieve energy and embodied carbon estimates.
 
 ## Implementation
 
@@ -8,14 +8,14 @@ Here can be implementation details of the plugin. For example which API is used,
 
 ## Usage
 
-To run the `<YOUR-CUSTOM-PLUGIN>`, an instance of `PluginInterface` must be created. Then, the plugin's `execute()` method can be called, passing required arguments to it.
+To run the `if-carbon-hack-plugin`, an instance of `PluginInterface` must be created. Then, the plugin's `execute()` method can be called, passing required arguments to it.
 
 This is how you could run the model in Typescript:
 
 ```typescript
 async function runPlugin() {
-  const newModel = await new MyCustomPlugin().configure(params);
-  const usage = await newModel.calculate([
+  const newModel = new ObjectStorage({});
+  const usage = await newModel.execute([
     {
       timestamp: '2021-01-01T00:00:00Z',
       duration: '15s',
@@ -36,6 +36,19 @@ runPlugin();
 
 ## Testing model integration
 
+The plugin's unit tests can be run with `npm test`
+
+### Examples
+
+The `examples` sub folder contains example manifest files, and is configured as a minimal npm package to aid in running them using this plugin. The package has a file based link back to the parent folder to allow it to install the plugin along with the Impact Framework dependency. Starting from the root directory you should be able to run this manifest by following these steps:
+
+```sh
+npm install
+cd examples
+npm install
+npx ie --manifest plugin-demo-link.yml
+```
+
 ### Using local links
 
 For using locally developed model in `IF Framework` please follow these steps: 
@@ -50,8 +63,8 @@ tags: null
 initialize:
   plugins:
     my-custom-plugin:
-      method: MyCustomPlugin
-      path: "<name-field-from-package.json>"
+      method: ObjectStorage
+      path: "if-carbon-hack-plugin"
       global-config:
         ...
 ...
