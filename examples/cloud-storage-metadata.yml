@@ -1,0 +1,30 @@
+name: basic CloudStorageMetadata example
+description: Run the plugin over accepted inputs
+tags: null
+initialize:
+  plugins:
+    cloud-storage-metadata:
+      method: CloudStorageMetadata
+      path: "if-carbon-hack-plugin"
+tree:
+  pipeline:
+    - cloud-storage-metadata
+  inputs:
+    - cloud/vendor: aws
+      cloud/service: s3
+    - cloud/vendor: aws
+      cloud/service: s3
+      cloud/usage-type: ZIA
+    - cloud/vendor: azure
+      cloud/service: blob-storage
+    - cloud/vendor: azure
+      cloud/service: blob-storage
+      cloud/usage-type: GZRS
+    - cloud/vendor: gcp
+      cloud/service: cloud-storage
+    - cloud/vendor: gcp
+      cloud/service: cloud-storage
+      cloud/usage-type: Dual-region
+    - cloud/vendor: gcp
+      cloud/service: cloud-storage
+      cloud/usage-type: Multi-region
