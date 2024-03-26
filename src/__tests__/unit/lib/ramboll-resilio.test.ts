@@ -4,7 +4,7 @@ import {RambollResilio} from '../../../lib/ramboll-resilio';
 describe('lib/ramboll-resilio: ', () => {
   describe('RambollResilio(): ', () => {
     it('has metadata field.', () => {
-      const pluginInstance = RambollResilio({});
+      const pluginInstance = RambollResilio();
 
       expect(pluginInstance).toHaveProperty('metadata');
       expect(pluginInstance).toHaveProperty('execute');
@@ -14,12 +14,12 @@ describe('lib/ramboll-resilio: ', () => {
 
     describe('execute(): ', () => {
       it('calculates kWh of storing 1Gb for one year.', async () => {
-        const pluginInstance = RambollResilio({});
-        const inputs = [{duration: SECONDS_IN_YEAR, 'data-stored': 1}];
+        const pluginInstance = RambollResilio();
+        const inputs = [{duration: SECONDS_IN_YEAR, 'storage/data-stored': 1}];
 
         const response = await pluginInstance.execute(inputs, {});
         expect(response[0]).toHaveProperty('storage/energy');
-        expect(response[0]['storage/energy']).toBeCloseTo(1.47);
+        expect(response[0]['storage/energy']).toBeCloseTo(0.147);
       });
     });
   });
