@@ -1,0 +1,36 @@
+name: basic storage energy example
+description: Uses minimal mock data to run the plugin
+tags: null
+initialize:
+  plugins:
+    import-data:
+      path: '@grnsft/if-plugins'
+      method: MockObservations
+      global-config:
+        timestamp-from: 2024-03-05T00:00
+        timestamp-to: 2024-03-05T01:00
+        duration: 300
+        components:
+          - name: storage-1
+        generators:
+          randint:
+            storage/data-stored:
+              min: 1
+              max: 50
+            storage/drive-size:
+              min: 1000
+              max: 20000
+            storage/drive-power:
+              min: 5
+              max: 15
+            storage/replication-factor:
+              min: 1
+              max: 6
+    object-storage:
+      method: StorageEnergy
+      path: "if-carbon-hack-plugin"
+      global-config: {}
+tree:
+  pipeline:
+    - import-data
+    - object-storage
