@@ -23,7 +23,7 @@ export const RambollResilio = (): PluginInterface => {
       const dataStoredGb = safeInput['storage/data-stored'];
 
       return {
-        ...safeInput,
+        ...input,
         'storage/energy': durationInYears * dataStoredGb * kWhPerGb,
       };
     });

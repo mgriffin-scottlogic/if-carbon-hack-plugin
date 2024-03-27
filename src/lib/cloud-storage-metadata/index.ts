@@ -62,7 +62,7 @@ export const CloudStorageMetadata = (): PluginInterface => {
       }
 
       return {
-        ...safeInput,
+        ...input,
         'storage/replication-factor': selectReplicationFactor(
           service,
           safeInput['cloud/usage-type']

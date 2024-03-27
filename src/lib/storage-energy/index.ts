@@ -15,19 +15,16 @@ export const StorageEnergy = (): PluginInterface => {
     return inputs.map(input => {
       const safeInput = validateInput(input);
       const replicationFactor = safeInput['storage/replication-factor'] ?? 1;
-      console.log(`replicationFactor: ${replicationFactor}`);
       const kWhPerGbHr =
         safeInput['storage/drive-power'] /
         (safeInput['storage/drive-size'] * 1000);
-      console.log(`kWhPerGbHr: ${kWhPerGbHr}`);
       const totalGbHrs =
         (safeInput['storage/data-stored'] *
           replicationFactor *
           safeInput.duration) /
         SECONDS_IN_HOUR;
-      console.log(`totalGbHrs: ${totalGbHrs}`);
       return {
-        ...safeInput,
+        ...input,
         'storage/energy': kWhPerGbHr * totalGbHrs,
       };
     });
