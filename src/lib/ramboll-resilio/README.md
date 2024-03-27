@@ -28,5 +28,5 @@ Based on Ramboll and Resilio paper available here: [Assessment of the energy foo
 
 This particular estimate is based on Google's own storage figures, using the storage allocated per user and annual energy consumption by user. The paper notes that the amount of storage is arbitrary and the energy consumption relies on information from the company whose services it is trying to model. The figures used in the estimation are:
 
-$$\frac{2.2kWh}{15Gb} = 0.147 kWh/Gb
+$$\frac{2.2kWh}{15Gb} = 0.147 kWh/Gb$$
 
