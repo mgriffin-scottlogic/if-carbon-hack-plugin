@@ -20,7 +20,6 @@ initialize:
     object-storage:
       method: RambollResilio
       path: "if-carbon-hack-plugin"
-      global-config: {}
 tree:
   pipeline:
     - import-data
