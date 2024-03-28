@@ -4,8 +4,7 @@ description: |
   As described in article here: https://www.linkedin.com/pulse/environmental-impact-cloud-common-crawl-case-study-julien-nioche-at8xf/?trackingId=XSEL7VNgQlywEWznDFxHZw%3D%3D
   The dataset is 7.9 PB in size, or 7,900,000 Gb for Impact Framework input unit.
   The data was stored from April 2021 to December 2023, 33 months or 86,832,000 seconds for Impact Framework input unit.
-  AWS reports the project's total usage as 3.386 metrics tonnes of CO2e, with 35.14% of this being on s3.
-  This would translate to around 1.1898 metric tonnes on s3 alone, or 1,189,840g as Impact Framework calculates.
+  The carbon impact of this public dataset alone is yet to be reported.
 tags: null
 initialize:
   plugins:
@@ -23,19 +22,33 @@ initialize:
           - storage/energy
           - grid/carbon-intensity
         output-parameter: operational-carbon
+    ramboll-resilio:
+      method: RambollResilio
+      path: "if-carbon-hack-plugin"
 tree:
-  pipeline:
-    - cloud-storage-metadata
-    - storage-energy
-    - carbon-intensity
-  inputs:
-    - timestamp: "2021-04-01 00:00:00"
-      duration: 86832000
-      cloud/vendor: aws
-      cloud/service: s3
-      storage/drive-size: 10000
-      storage/drive-power: 6.5
-      storage/data-stored: 7900000
-      grid/carbon-intensity: 396
-      
+  children:
+    ramboll-method:
+      pipeline:
+        - ramboll-resilio
+        - carbon-intensity
+      inputs:
+        - timestamp: "2021-04-01 00:00:00"
+          duration: 86832000
+          storage/data-stored: 7900000
+          grid/carbon-intensity: 396
+    component-method:
+      pipeline:
+        - cloud-storage-metadata
+        - storage-energy
+        - carbon-intensity
+      inputs:
+        - timestamp: "2021-04-01 00:00:00"
+          duration: 86832000
+          cloud/vendor: aws
+          cloud/service: s3
+          storage/drive-size: 10000
+          storage/drive-power: 6.5
+          storage/data-stored: 7900000
+          grid/carbon-intensity: 396
+          
 
