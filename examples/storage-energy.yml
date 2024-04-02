@@ -28,7 +28,7 @@ initialize:
               max: 6
     object-storage:
       method: StorageEnergy
-      path: "if-carbon-hack-plugin"
+      path: 'if-carbon-hack-plugin'
       global-config: {}
 tree:
   pipeline:

@@ -5,7 +5,7 @@ initialize:
   plugins:
     cloud-storage-metadata:
       method: CloudStorageMetadata
-      path: "if-carbon-hack-plugin"
+      path: 'if-carbon-hack-plugin'
 tree:
   pipeline:
     - cloud-storage-metadata

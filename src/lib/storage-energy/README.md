@@ -1,4 +1,3 @@
-
 # Storage Energy
 
 This plugin allows you to estimate the energy required to store data, based on the amount of data, storage time and drive type.

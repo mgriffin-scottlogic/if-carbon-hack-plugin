@@ -5,7 +5,7 @@ initialize:
   plugins:
     object-storage:
       method: ObjectStorage
-      path: "if-carbon-hack-plugin"
+      path: 'if-carbon-hack-plugin'
       global-config: {}
 tree:
   pipeline:

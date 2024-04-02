@@ -1,8 +1,5 @@
 {
-    "files.eol": "\n",
-    "cSpell.words": [
-        "Ramboll",
-        "Resilio"
-    ],
-    "editor.tabSize": 2
+  "files.eol": "\n",
+  "cSpell.words": ["Ramboll", "Resilio"],
+  "editor.tabSize": 2
 }

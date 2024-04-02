@@ -1,7 +1,7 @@
 ---
 name: Feedback
 about: Submitting feedback on plugin template
-title: "Feedback - "
+title: 'Feedback - '
 labels: feedback
 assignees: ''
 ---
@@ -11,7 +11,7 @@ assignees: ''
 What does your feedback relate to?
 
 - [] Project aims/objectives
-- [] Repository structure 
+- [] Repository structure
 - [] Documentation
 - [] Tests
 - [] Other
@@ -35,6 +35,5 @@ e.g. "issues are sitting on the board for over X days"
 
 What fixes do you propose?
 e.g. "please define a response time of X days for issues and publish in the project README"
-
 
 **Note: We will take all feedback seriously. Please be polite and constructive - aggressive or abusive feedback will simply be deleted.**
