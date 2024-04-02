@@ -51,10 +51,10 @@ npx ie --manifest plugin-demo-link.yml
 
 ### Using local links
 
-For using locally developed model in `IF Framework` please follow these steps: 
+For using locally developed model in `IF Framework` please follow these steps:
 
 1. On the root level of a locally developed model run `npm link`, which will create global package. It uses `package.json` file's `name` field as a package name. Additionally name can be checked by running `npm ls -g --depth=0 --link=true`.
-2. Use the linked model in impl by specifying `name`, `method`, `path` in initialize models section. 
+2. Use the linked model in impl by specifying `name`, `method`, `path` in initialize models section.
 
 ```yaml
 name: plugin-demo-link
@@ -64,10 +64,8 @@ initialize:
   plugins:
     my-custom-plugin:
       method: ObjectStorage
-      path: "if-carbon-hack-plugin"
-      global-config:
-        ...
-...
+      path: 'if-carbon-hack-plugin'
+      global-config: ...
 ```
 
 ### Using directly from Github
@@ -75,13 +73,13 @@ initialize:
 You can simply push your model to the public Github repository and pass the path to it in your impl.
 For example, for a model saved in `github.com/my-repo/my-model` you can do the following:
 
-npm install your model: 
+npm install your model:
 
 ```
 npm install -g https://github.com/my-repo/my-model
 ```
 
-Then, in your `impl`, provide the path in the model instantiation. You also need to specify which class the model instantiates. In this case you are using the `PluginInterface`, so you can specify `OutputModel`. 
+Then, in your `impl`, provide the path in the model instantiation. You also need to specify which class the model instantiates. In this case you are using the `PluginInterface`, so you can specify `OutputModel`.
 
 ```yaml
 name: plugin-demo-git
@@ -92,9 +90,7 @@ initialize:
     my-custom-plugin:
       method: MyCustomPlugin
       path: https://github.com/my-repo/my-model
-      global-config:
-        ...
-...
+      global-config: ...
 ```
 
 Now, when you run the `manifest` using the IF CLI, it will load the model automatically. Run using:

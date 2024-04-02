@@ -1,4 +1,3 @@
-
 # Cloud Storage Metadata
 
 This plugin allows you to determine the replication factor for cloud storage, based on vendor, service and usage type.
@@ -26,6 +25,6 @@ An array containing:
 
 ## IF Implementation
 
-IF implements this plugin using data from Cloud Carbon Footprint. 
+IF implements this plugin using data from Cloud Carbon Footprint.
 
 Cloud Storage Metadata currently implements only for AWS 's3', Azure 'blob-storage' and GCP 'cloud-storage.

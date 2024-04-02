@@ -1,4 +1,4 @@
-name: basic storage energy example
+name: basic storage read/write energy example
 description: Uses minimal mock data to run the plugin
 tags: null
 initialize:
@@ -14,23 +14,19 @@ initialize:
           - name: storage-1
         generators:
           randint:
-            storage/data-stored:
-              min: 1
-              max: 50
-            storage/drive-size:
-              min: 1000
+            storage/data-transfer:
+              min: 100
               max: 20000
-            storage/drive-power:
-              min: 5
-              max: 15
-            storage/replication-factor:
+            storage/drive-read-write-power:
+              min: 15
+              max: 20
+            storage/drive-read-write-speed:
               min: 1
               max: 6
-    object-storage:
-      method: StorageEnergy
+    object-storage-read-write:
+      method: StorageReadWriteEnergy
       path: 'if-carbon-hack-plugin'
-      global-config: {}
 tree:
   pipeline:
     - import-data
-    - object-storage
+    - object-storage-read-write

@@ -19,7 +19,7 @@ initialize:
               max: 50
     object-storage:
       method: RambollResilio
-      path: "if-carbon-hack-plugin"
+      path: 'if-carbon-hack-plugin'
 tree:
   pipeline:
     - import-data
