@@ -1,0 +1,32 @@
+name: basic storage read/write energy example
+description: Uses minimal mock data to run the plugin
+tags: null
+initialize:
+  plugins:
+    import-data:
+      path: '@grnsft/if-plugins'
+      method: MockObservations
+      global-config:
+        timestamp-from: 2024-03-05T00:00
+        timestamp-to: 2024-03-05T01:00
+        duration: 300
+        components:
+          - name: storage-1
+        generators:
+          randint:
+            storage/data-transfer:
+              min: 100
+              max: 20000
+            storage/drive-read-write-power:
+              min: 15
+              max: 20
+            storage/drive-read-write-speed:
+              min: 1
+              max: 6
+    object-storage-read-write:
+      method: StorageReadWriteEnergy
+      path: 'if-carbon-hack-plugin'
+tree:
+  pipeline:
+    - import-data
+    - object-storage-read-write
