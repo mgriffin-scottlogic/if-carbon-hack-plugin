@@ -2,6 +2,14 @@
 
 `if-carbon-hack-plugin` is an environmental impact calculator template which exposes an API for [IF](https://github.com/Green-Software-Foundation/if) to retrieve energy and embodied carbon estimates.
 
+## Plugins
+
+The project contains the following plugins:
+- [Ramboll-Resilio](/src/lib/ramboll-resilio) - estimation based on using a figure for total annual energy reported per user, divided by the storage allocated per user
+- [Cloud Storage Metadata](/src/lib/cloud-storage-metadata) - return a replication factor based on the type of cloud service you were using
+- [Storage Energy](/src/lib/storage-energy) - estimates the energy consumption of stored data
+- [Storage Read Write Energy](/src/lib/storage-read-write-energy) - estimates the energy used to read/write data to a storage device
+
 ## Implementation
 
 Here can be implementation details of the plugin. For example which API is used, transformations and etc.
