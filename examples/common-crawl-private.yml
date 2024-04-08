@@ -1,0 +1,78 @@
+name: Common Crawl private s3 data estimation
+description: |
+  An attempt to replicate the carbon results for the private Common Crawl data on s3.
+  As described in article here: https://www.linkedin.com/pulse/environmental-impact-cloud-common-crawl-case-study-julien-nioche-at8xf/?trackingId=XSEL7VNgQlywEWznDFxHZw%3D%3D
+  We spoke with the author and Common Crawl's CTO to confirm that the private data is 115 TB in size, or 115,000 Gb for Impact Framework input unit.
+  The data was stored from April 2021 to December 2023, 33 months or 86,832,000 seconds for Impact Framework input unit.
+  AWS reports the project's total usage as 3.386 metrics tonnes of CO2e, with 35.14% of this being on s3.
+  This would translate to around 1.1898 metric tonnes on s3 alone, or 1,189,840g as Impact Framework calculates.
+  Our calculations result in an overestimation of ~2,142,000g of CO2e but this could be due to the data increasing over time instead of remaining constant.
+tags: null
+initialize:
+  plugins:
+    cloud-storage-metadata:
+      method: CloudStorageMetadata
+      path: 'if-carbon-hack-plugin'
+    storage-energy:
+      method: StorageEnergy
+      path: 'if-carbon-hack-plugin'
+    carbon-intensity:
+      method: Multiply
+      path: '@grnsft/if-plugins'
+      global-config:
+        input-parameters:
+          - storage/energy
+          - grid/carbon-intensity
+        output-parameter: operational-carbon
+    drive-size-to-resources:
+      method: Coefficient
+      path: '@grnsft/if-plugins'
+      global-config:
+        input-parameter: storage/drive-size
+        coefficient: 1
+        output-parameter: resources-total
+    data-to-resources:
+      method: Multiply
+      path: '@grnsft/if-plugins'
+      global-config:
+        input-parameters:
+          - storage/data-stored
+          - storage/replication-factor
+        output-parameter: resources-reserved
+    embodied-carbon:
+      method: SciM
+      path: '@grnsft/if-plugins'
+    ramboll-resilio:
+      method: RambollResilio
+      path: 'if-carbon-hack-plugin'
+tree:
+  children:
+    ramboll-method:
+      pipeline:
+        - ramboll-resilio
+        - carbon-intensity
+      inputs:
+        - timestamp: '2021-04-01 00:00:00'
+          duration: 86832000
+          storage/data-stored: 115000
+          grid/carbon-intensity: 396
+    component-method:
+      pipeline:
+        - cloud-storage-metadata
+        - storage-energy
+        - carbon-intensity
+        - drive-size-to-resources
+        - data-to-resources
+        - embodied-carbon
+      inputs:
+        - timestamp: '2021-04-01 00:00:00'
+          duration: 86832000
+          cloud/vendor: aws
+          cloud/service: s3
+          storage/drive-size: 10000
+          storage/drive-power: 6.5
+          storage/data-stored: 115000
+          grid/carbon-intensity: 396
+          device/emissions-embodied: 200000 # gCO2e for a HDD - estimated from https://www.networkworld.com/article/957264/are-hdds-greener-than-ssds.html
+          device/expected-lifespan: 157680000 # 5 years in seconds
+
