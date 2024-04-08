@@ -29,9 +29,9 @@ An array containing:
 
 To avoid tying the plugin to any point in time data, it requires the individual drive details to be passed in.Calculates the minimum time that that data could be written/read in, using:
 
-$$drive\text-read\text-write\text-speed \times data\text-transfer = min \space time$$
+$$\frac{data\text-transfer}{drive\text-read\text-write\text-speed} = min \space time$$
 
-If this is less than the provided duration it will use this instead. The formula for energy estimation is then:
+If this is greater than the provided duration it will use this instead. The formula for energy estimation is then:
 
 $$\frac{drive\text-read\text-write\text-power}{1000} \times \frac{duration}{60 \times 60} = energy$$
 
