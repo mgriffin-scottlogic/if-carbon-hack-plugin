@@ -4,7 +4,7 @@ This plugin allows you to estimate the energy required to read/write data to a s
 
 ## Parameters
 
-## Plugin Config
+### Plugin Config
 
 Not Needed
 
@@ -15,7 +15,7 @@ Not Needed
 - `storage/drive-read-write-speed`: Read/write speed of storage device used in GB/s
 - `storage/data-transfer`: Amount of data to be read/written in GB
 
-## Returns
+### Returns
 
 An array containing:
 
@@ -24,6 +24,14 @@ An array containing:
 - `storage/drive-read-write-speed`: Read/write speed of storage device used in GB/s
 - `storage/data-transfer`: Amount of data to be read/written in GB
 - `storage/energy`: The energy apportioned to reading/writing data in kWh
+
+### Errors
+
+Can throw errors in the following situations:
+
+- Any of `duration`, `storage/drive-read-write-power`, `storage/drive-read-write-speed` or `storage/data-transfer` are not present in the input.
+- Any of `duration`, `storage/drive-read-write-power`, `storage/drive-read-write-speed` or `storage/data-transfer` are not numbers.
+- Any of `duration`, `storage/drive-read-write-power`, `storage/drive-read-write-speed` or `storage/data-transfer` are not positive.
 
 ## IF Implementation
 
@@ -36,3 +44,11 @@ If this is greater than the provided duration it will use this instead. The form
 $$\frac{drive\text-read\text-write\text-power}{1000} \times \frac{duration}{60 \times 60} = energy$$
 
 Where $\frac{drive\text-read\text-write\text-power}{1000}$ gives a figure for kW and $\frac{duration}{60 \times 60}$ gives the time in hours. 
+
+## Unit tests
+
+Unit tests available [here](../../__tests__/unit/lib/storage-read-write-energy.test.ts)
+
+## Example manifest
+
+Example manifest available [here](../../../examples/storage-read-write-energy.yml)
