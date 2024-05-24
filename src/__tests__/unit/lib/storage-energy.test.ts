@@ -45,7 +45,7 @@ describe('lib/storage-energy: ', () => {
         expect(response[0]['storage/energy']).toBeCloseTo(0.0012);
       });
 
-      it('calculates kWh of storing 1Gb for one year.', async () => {
+      it('calculates kWh of storing 1GB for one year.', async () => {
         const pluginInstance = StorageEnergy();
         const inputs = [
           {
@@ -61,7 +61,7 @@ describe('lib/storage-energy: ', () => {
         expect(response[0]['storage/energy']).toBeCloseTo(0.005694);
       });
 
-      it('calculates kWh of storing 1Gb for one year with a replication factor.', async () => {
+      it('calculates kWh of storing 1GB for one year with a replication factor.', async () => {
         const pluginInstance = StorageEnergy();
         const inputs = [
           {

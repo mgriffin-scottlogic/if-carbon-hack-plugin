@@ -12,8 +12,8 @@ Not Needed
 
 - `duration`: Length of time the it will take to read/write the data
 - `storage/drive-read-write-power`: Power of the drive(s), when reading/writing, used in Watts
-- `storage/drive-read-write-speed`: Read/write speed of storage device used in Gb/s
-- `storage/data-transfer`: Amount of data to be read/written in Gb
+- `storage/drive-read-write-speed`: Read/write speed of storage device used in GB/s
+- `storage/data-transfer`: Amount of data to be read/written in GB
 
 ## Returns
 
@@ -21,8 +21,8 @@ An array containing:
 
 - `duration`: Length of time the it will take to read/write the data
 - `storage/drive-read-write-power`: Power of the drive(s), when reading/writing, used in Watts
-- `storage/drive-read-write-speed`: Read/write speed of storage device used in Gb/s
-- `storage/data-transfer`: Amount of data to be read/written in Gb
+- `storage/drive-read-write-speed`: Read/write speed of storage device used in GB/s
+- `storage/data-transfer`: Amount of data to be read/written in GB
 - `storage/energy`: The energy apportioned to reading/writing data in kWh
 
 ## IF Implementation

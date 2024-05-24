@@ -12,7 +12,7 @@ describe('lib/storage-read-write-energy: ', () => {
     });
 
     describe('execute(): ', () => {
-      it('calculates kWh of read/write of 1TB of data, at a speed of 5Gb/s, to storage device', async () => {
+      it('calculates kWh of read/write of 1TB of data, at a speed of 5GB/s, to storage device', async () => {
         const pluginInstance = StorageReadWriteEnergy();
         const inputs = [
           {

@@ -13,7 +13,7 @@ describe('lib/ramboll-resilio: ', () => {
     });
 
     describe('execute(): ', () => {
-      it('calculates kWh of storing 1Gb for one year.', async () => {
+      it('calculates kWh of storing 1GB for one year.', async () => {
         const pluginInstance = RambollResilio();
         const inputs = [{duration: SECONDS_IN_YEAR, 'storage/data-stored': 1}];
 

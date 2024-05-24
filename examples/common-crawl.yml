@@ -2,7 +2,7 @@ name: Common Crawl s3 estimation
 description: |
   An attempt to replicate the carbon results for the Common Crawl dataset on s3.
   As described in article here: https://www.linkedin.com/pulse/environmental-impact-cloud-common-crawl-case-study-julien-nioche-at8xf/?trackingId=XSEL7VNgQlywEWznDFxHZw%3D%3D
-  The dataset is 7.9 PB in size, or 7,900,000 Gb for Impact Framework input unit.
+  The dataset is 7.9 PB in size, or 7,900,000 GB for Impact Framework input unit.
   The data was stored from April 2021 to December 2023, 33 months or 86,832,000 seconds for Impact Framework input unit.
   The carbon impact of this public dataset alone is yet to be reported.
 tags: null
